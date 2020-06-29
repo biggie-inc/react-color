@@ -7,8 +7,21 @@ import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
-export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
-  disableAlpha, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
+export const Sketch = ({
+  hex,
+  hsl,
+  hsv,
+  rgb,
+  width,
+  onChange,
+  renderers,
+  disableRGB,
+  disableAlpha,
+  presetColors,
+  onSwatchHover,
+  className = '',
+  styles: passedStyles = {},
+}) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -125,6 +138,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         hsl={ hsl }
         hex={ hex }
         onChange={ onChange }
+        disableRGB={ disableRGB }
         disableAlpha={ disableAlpha }
       />
       <SketchPresetColors
